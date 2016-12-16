@@ -1,0 +1,15 @@
+#!/usr/bin/python
+from os import environ
+import bernhard
+from random import randint
+from time import sleep
+
+riemann = environ['RIEMANN_PORT_5555_TCP_ADDR']
+hostname = environ['HOSTNAME']
+c = bernhard.Client(host=riemann)
+
+while True:
+    s = randint(1,5)
+    print "sleeping: %d" % s
+    sleep(s)
+    c.send({'host': hostname, 'service': 'fakesrv', 'metric': s})
