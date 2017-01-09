@@ -12,4 +12,4 @@ while True:
     s = randint(1,5)
     print "sleeping: %d" % s
     sleep(s)
-    c.send({'host': hostname, 'service': 'fakesrv', 'metric': s})
+    c.send({'host': hostname, 'service': 'fakepysrv', 'metric': s})
